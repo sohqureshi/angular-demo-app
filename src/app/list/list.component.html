@@ -1,0 +1,26 @@
+<div class="list-container">
+  <ng-container *ngIf="loading$ | async; else loaded">
+    <div class="list-loading">
+      <app-spinner></app-spinner>
+      <!-- Fallback text only if spinner fails to load -->
+      <span class="loading-text" style="display:none;">Loading items...</span>
+    </div>
+  </ng-container>
+  <ng-template #loaded>
+    <div *ngIf="error$ | async as error" class="error">{{ error }}</div>
+    <mat-list *ngIf="(items$ | async) as items">
+      <mat-list-item *ngFor="let item of items">
+        <span matLine><strong>{{ item.name }}</strong></span> - 
+        <span matLine>{{ item.description }}</span>
+      </mat-list-item>
+    </mat-list>
+    <div *ngIf="(items$ | async)?.length === 0" class="empty-msg">No items found.</div>
+  </ng-template>
+   <button mat-stroked-button class="mdc-button mat-mdc-button-base mat-mdc-button mat-unthemed" color="primary" [routerLink]="['/dashboard']">
+      ← Back to Dashboard
+    </button>
+   <!-- <div class="list-nav">
+   
+  </div> -->
+</div>
+ 
