@@ -61,7 +61,7 @@ ng e2e
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 
-# CareMonitorTestDemo Angular Interview Task
+# Angular Feature Demo Web Application
 
 ## Project Features
 
